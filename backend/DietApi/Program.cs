@@ -24,13 +24,7 @@ builder.Services.AddCors(options =>
 {
     options.AddPolicy("FrontendPolicy", policy =>
     {
-        var configuredOrigins = Environment.GetEnvironmentVariable("CORS_ORIGINS")?
-            .Split(',', StringSplitOptions.RemoveEmptyEntries | StringSplitOptions.TrimEntries);
-        var origins = configuredOrigins is { Length: > 0 }
-            ? configuredOrigins
-            : ["http://localhost:5173", "http://127.0.0.1:5173"];
-
-        policy.WithOrigins(origins)
+        policy.AllowAnyOrigin()
             .AllowAnyHeader()
             .AllowAnyMethod();
     });
