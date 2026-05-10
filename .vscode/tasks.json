@@ -1,0 +1,21 @@
+﻿{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Запустить backend",
+      "type": "shell",
+      "command": "dotnet run --project backend/DietApi/DietApi.csproj",
+      "problemMatcher": "$msCompile",
+      "isBackground": true
+    },
+    {
+      "label": "Запустить frontend",
+      "type": "shell",
+      "command": "npm install && npm run dev",
+      "options": {
+        "cwd": "${workspaceFolder}/frontend"
+      },
+      "isBackground": true
+    }
+  ]
+}
